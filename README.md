@@ -1,3 +1,4 @@
+
 # Passel Public Version
 This is the public version of the passel discord bot. You can use the provided code and instructions to run the bot by yourself and use in your own server.
 
@@ -5,6 +6,8 @@ This is the public version of the passel discord bot. You can use the provided c
 First of all, thank you for using the passel bot. The bot has been active for over 2 years, and I greately apprecitate those who have added and used the bot in their servers. Due to Discord's changing rules, I will not be able to host the passel public bot anymore. 
 
 You can still use the bot by hosting it on your own by following the steps below. If you have *any* questions, feel free to reach out to me via the [discord support server](https://discord.gg/wmSsKCX).
+
+**Feel free to fork this repo and create your own bot by adding more features, or using this code in another bot you may already have. [Click for the discord python API](https://discordpy.readthedocs.io/en/stable/api.html).**
 ***
 
 # About
@@ -47,6 +50,13 @@ You must first create a discord bot account in the [discord developer portal](ht
 The page should look like this: 
 ![enter image description here](https://github.com/stoir/passel_public/blob/main/Images/intents.png)
 ![enter image description here](https://github.com/stoir/passel_public/blob/main/Images/bot_perms.png)
+
+### Add the created bot to your server
+You are complete with creating the bot, now you need to add it to your server.
+1. click on the OAuth2 arrow in the side bar, then click on URL generator
+2. under scopes select bot
+3. you should see a new menu, under bot permissions, select Administrator
+4. then copy paste the invite link into a browser and invite the bot
 
 You are done with this part. Please move onto the next section below. 
 ***
@@ -158,7 +168,7 @@ Using Heroku to host your bot is complicated. You will need to use the command l
 5. Click on create new app
 6. add an app name, keep it simple
 7. choose a region, US works well most of the time
-8. Use the heroku CLI to deploy, the heroku page shows steps on how to use the heroku CLI. You will need to run the heroku CLI commands on your windows command line or your mac terminal depending on your operating system. Do not copy paste the `$` sign
+8. Use the heroku CLI to deploy, the heroku page shows steps on how to use the heroku CLI. You will need to run the heroku CLI commands on your windows command line or your mac terminal depending on your operating system. Do not copy paste the `$` sign. You must do the heroku CLI and github commands inside the repoistory of where you downloaded the bot.
 9. go to the heroku portal and click on resources, then toggle the worker python main.py on. To do this, click on the edit button then toggle on and click confirm.
 10. Once you delpy successfully, you should see the bot online in your discord server with a green active bubble on the bot's profile.
 11. click on more in the top right of the heroku portal, then click on view logs, you should also see your bot deployed successfully here. 
