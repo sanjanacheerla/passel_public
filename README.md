@@ -93,7 +93,9 @@ Mode 2: In mode 2, the oldest pinned message gets sent to a pins archive channel
 2. The third `# TODO` statement says
 
 > `# TODO`
+> 
 > `sendall is set to 0 by default, change to 1 if you want`
+> 
 >  `the bot to send all pinned messages to the pins channel`
 
 The sendall feature means that every pinned message (instead of the 50th pinned message) is sent to the pins channel which you will set up in the next step. Change `sendall = 0` to `sendall = 1` if you want the bot to send all pins to the pins channel
@@ -101,6 +103,7 @@ The sendall feature means that every pinned message (instead of the 50th pinned 
 3. The fourth `# TODO` statement says
 
 > `# TODO`
+> 
 > `# replace the 0 with the pins channel ID for your sever`
 
 1. If you do not have a channel where you want to forward your pinned messages, create one. 
@@ -111,7 +114,9 @@ The sendall feature means that every pinned message (instead of the 50th pinned 
 4. The fifth `# TODO` statement says
 
 > `# TODO`
+> 
 > `# add any black listed channel IDs as a list separated by a comma (,)`
+> 
 > `# a good idea is to add admin channels to this`
 
 Blacklisting means that pinned messages in those channels will not be sent to the pins channel. For example, if you have a mod channel, #mod-general, and if you do not want extra pinned messages from that channel being sent to #pins, copy the #mod-general ID andd put it in the `[ ]`
@@ -186,9 +191,13 @@ To change any settings, you have to edit the file on your computer first then re
 1. edit any changes you want in the main.py file. 
 2. redeploy to heroku using the deploy commands on the heroku dashboard page for your app. use only the following commands:
 > `heroku login`
+> 
 > `cd` into the directory where you saved your files.
+> 
 > `git add .`
+> 
 > `git commit -am "make it better"`
+> 
 > `git push heroku master`
 
 Thats it!
