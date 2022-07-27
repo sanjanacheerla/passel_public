@@ -142,9 +142,44 @@ If the token is posted anywhere online, your server may be in danger, please res
 
 Hosting is typically expensive, there are multiple ways to host for free. You can either use the method I describe below or another one you find online. For this method you need a credit card, but you will not be charged anything, it is only used for verifying your heroku account. 
 
+Using Heroku to host your bot is complicated. You will need to use the command line/terminal feature on your laptop to use this. If you need help reach out or allow an expereinced member of your team to do this.
+
 ### Hosting the bot
 
+1. go to [https://id.heroku.com/login](https://id.heroku.com/login)
+2. create a new account and sign up, for primary development language select python. 
+3. Verify your email and set a password. Set a complicated password for safety and note the password in a safe area. 
+4. Log in with your password and click accept
+5. Click on create new app
+6. add an app name, keep it simple
+7. choose a region, US works well most of the time
+8. Use the heroku CLI to deploy, the heroku page shows steps on how to use the heroku CLI. You will need to run the heroku CLI commands on your windows command line or your mac terminal depending on your operating system. 
+9. go to the heroku portal and click on resources, then toggle the worker python main.py on. To do this, click on the edit button then toggle on and click confirm.
+10. Once you delpy successfully, you should see the bot online in your discord server with a green active bubble on the bot's profile.
+11. click on more in the top right of the heroku portal, then click on view logs, you should also see your bot deployed successfully here. 
+12. After following the steps above, **please set up 2FA if you add a credit card to your account so your accound is extra protected** [Follow this link to set up 2FA.](https://devcenter.heroku.com/articles/multi-factor-authentication#enabling-mfa-and-registering-verification-methods)
+
 ### Verifying your heroku account
+If you want your bot to be online all the time, YOU MUST verify your account by providing a credit card.
+
+By default, heroku gives you 555 hours free per month. This means that if want your bot to run 24x7 you will be able to host the bot for about 23 days per month before you run out of the 555 hours. 
+
+**To get 450 more hours for free without any additional charge, you have to add a credit card to your account. To date, you will not be charged by heroku. *To avoid getting charged do not create any more heroku apps per account other than the discord bot.***
+
+**Also enable 2FA, in case of a data leak, your account, password, and credit card details will be protected with 2FA**
+
+Follow these steps to verify your account and get 450 hours free of charge. 
+1. click on the user icon in the top corner, then click on Account Settings
+2. click on billing
+3. click add credit card
+4. you should be all set!
+
+**If you can use the bot now, you have successfully set up the bot and heroku account (with 2FA hopefully)! If you have any issues reach out in the support server or watch the setup video.**
 
 ***
 ## 4. Changing settings in the future after hosting
+
+***
+> # Thank you for using the code, if you need any help at all please reach out on the support server.
+> ## I hope that the tutorial was informative and easy to follow.
+> hyppytyynytyydytys#1010
