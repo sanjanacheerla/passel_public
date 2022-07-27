@@ -27,7 +27,7 @@ The bot works by unpinning one message and sending it to a different channel dur
 # Setup
 **Note: There will be a setup video uploaded by August 1 2022 so that you can follow the video step by step as well as having the instructions below to follow.**
 
-Set up consists of the 3 following sections. Please follow each section carefully, if you run into issues reach out via the  [discord support server](https://discord.gg/wmSsKCX). It would be easy to do this setup if you are the server owner or have administrator permissions. You MUST do the setup on a laptop.
+Set up consists of the 3 following sections. Please follow each section carefully, if you run into issues reach out via the  [discord support server](https://discord.gg/wmSsKCX). It would be easy to do this setup if you are the server owner or have administrator permissions. You MUST do the setup on a laptop or computer.
 
 ## 1. Create a Discord bot in the developer portal
 You must first create a discord bot account in the [discord developer portal](https://discord.com/developers/applications). 
@@ -142,7 +142,7 @@ If the token is posted anywhere online, your server may be in danger, please res
 
 Hosting is typically expensive, there are multiple ways to host for free. You can either use the method I describe below or another one you find online. For this method you need a credit card, but you will not be charged anything, it is only used for verifying your heroku account. 
 
-Using Heroku to host your bot is complicated. You will need to use the command line/terminal feature on your laptop to use this. If you need help reach out or allow an expereinced member of your team to do this.
+Using Heroku to host your bot is complicated. You will need to use the command line/terminal feature on your laptop or computer to use this. If you need help reach out or allow an expereinced member of your team to do this.
 
 ### Hosting the bot
 
@@ -153,7 +153,7 @@ Using Heroku to host your bot is complicated. You will need to use the command l
 5. Click on create new app
 6. add an app name, keep it simple
 7. choose a region, US works well most of the time
-8. Use the heroku CLI to deploy, the heroku page shows steps on how to use the heroku CLI. You will need to run the heroku CLI commands on your windows command line or your mac terminal depending on your operating system. 
+8. Use the heroku CLI to deploy, the heroku page shows steps on how to use the heroku CLI. You will need to run the heroku CLI commands on your windows command line or your mac terminal depending on your operating system. Do not copy paste the `$` sign
 9. go to the heroku portal and click on resources, then toggle the worker python main.py on. To do this, click on the edit button then toggle on and click confirm.
 10. Once you delpy successfully, you should see the bot online in your discord server with a green active bubble on the bot's profile.
 11. click on more in the top right of the heroku portal, then click on view logs, you should also see your bot deployed successfully here. 
@@ -176,8 +176,22 @@ Follow these steps to verify your account and get 450 hours free of charge.
 
 **If you can use the bot now, you have successfully set up the bot and heroku account (with 2FA hopefully)! If you have any issues reach out in the support server or watch the setup video.**
 
-***
+# DO NOT DELETE ANY OF THE FILES YOU USED FROM YOUR COMPUTER, THIS WILL MAKE IT EASIER FOR ANY FUTURE CHANGES OR ISSUES YOU OCCUR.
+
+
 ## 4. Changing settings in the future after hosting
+
+To change any settings, you have to edit the file on your computer first then re-deploy to heroku. 
+
+1. edit any changes you want in the main.py file. 
+2. redeploy to heroku using the deploy commands on the heroku dashboard page for your app. use only the following commands:
+> `heroku login`
+> `cd` into the directory where you saved your files.
+> `git add .`
+> `git commit -am "make it better"`
+> `git push heroku master`
+
+Thats it!
 
 ***
 > # Thank you for using the code, if you need any help at all please reach out on the support server.
