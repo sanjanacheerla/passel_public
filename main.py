@@ -31,6 +31,23 @@ client = commands.Bot(command_prefix='p.',
                       status='Online', case_insensitive=True)
 client.remove_command("help")
 
+# TODO change mode to 1 or 2 here
+mode = 1
+
+# TODO 
+# sendall is set to 0 by default, change to 1 if you want
+# the bot to send all pinned messages to the pins channel
+sendall = 0
+
+# TODO 
+# replace the 0 with the pins channel ID for your sever
+pins_channel = 0
+
+# TODO
+# add any black listed channel IDs as a list separated by a comma (,)
+# a good idea is to add admin channels to this
+blacklisted_channels = []
+
 # discord embed colors
 EMBED_COLORS = [
     discord.Colour.magenta(),
@@ -53,23 +70,6 @@ EMBED_COLORS = [
     discord.Colour.purple(),
     discord.Colour.magenta(),
 ]
-
-# TODO change mode to 1 or 2 here
-mode = 1
-
-# TODO 
-# sendall is set to 0 by default, change to 1 if you want
-# the bot to send all pinned messages to the pins channel
-sendall = 0
-
-# TODO 
-# replace the 0 with the pins channel ID for your sever
-pins_channel = 0
-
-# TODO
-# add any black listed channel IDs as a list separated by a comma (,)
-# a good idea is to add admin channels to this
-blacklisted_channels = []
 
 # When the bot is ready following sets the status of the bot
 @client.event
