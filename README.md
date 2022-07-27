@@ -7,7 +7,26 @@ First of all, thank you for using the passel bot. The bot has been active for ov
 You can still use the bot by hosting it on your own by following the steps below. If you have *any* questions, feel free to reach out to me via the [discord support server](https://discord.gg/wmSsKCX).
 ***
 
+# About
+Passel is a discord bot that manages the number of pins in a server. Discord has a pin limit of 50 pins per channel. However, with passel, that limit can be bypassed. The following readme will explain how the bot works and how to add and set up the bot in a server.
+
+## How it works
+The bot works by unpinning one message and sending it to a different channel during setup. There are 2 modes the bot can be set up in. 
+
+**Mode 1:** In mode 1, the most recent pinned message gets sent to a pins archive channel of your choice. This means that the most recent pin wont be viewable in the pins tab, but will be visible in the pins archive channel that you chose during setup
+
+**Mode 2:** In mode 2, the oldest pinned message gets sent to a pins archive channel of your choice. This means that the most recent pin will be viewable in the pins tab, and the oldest pin will be unpinned and put into the pins archive channel
+
+**Also, any channel that has 50 pins should have one message unpinned, and then repin that 1 message after the bot is setup.**
+
+***Please keep in mind that the bot only pins messages that REACH and EXCEED the limit of 50 pins per channel in discord.***
+
+***If you want to pin ALL messages, use the sendall feature, follow instructions below to set up***
+
+***
 # Setup
+**Note: There will be a setup video uploaded by August 1 2022 so that you can follow the video step by step as well as having the instructions below to follow.**
+
 Set up consists of the 3 following sections. Please follow each section carefully, if you run into issues reach out via the  [discord support server](https://discord.gg/wmSsKCX). It would be easy to do this setup if you are the server owner or have administrator permissions. You MUST do the setup on a laptop.
 
 ## 1. Create a Discord bot in the developer portal
@@ -52,14 +71,80 @@ If you observe the main.py file, you notice that there are lines that start with
 **2.a.i) optional edit**
 
  1. This is the first `# TODO` statement which says 
-> # TODO change command here if you want to use another command, replace p. with anything you want inside the single ('') quotes
-If you want to change the bot command from p. (for example p.settings) to something else like =, replace the p. to = so the bot responds when you type =settings.
+>  `# TODO change command here if you want to use another command, replace p. with anything you want inside the single ('') quotes`
 
+If you want to change the bot command from p. (for example p.settings) to something else like =, replace the p. to = so the bot responds when you type =settings. 
 
 The p. can be replaced with anything that is 1 character or multiple characters. Normally for discord bots, do not replace this with anything that is more than 2 characters.
 
 **2.a.ii) MUST edit**
-1. 
+1. The second `# TODO` says
+
+> `# TODO change mode to 1 or 2 here`
+
+Change the mode of the bot herre, by replacing the 1 in `mode = 1` to the mode you want. If you want mode 1, you can leave this as is, if you want mode 2, change `mode = 1` to `mode = 2`
+
+*Modes:*
+
+Mode 1: In mode 1, the most recent pinned message gets sent to a pins archive channel of your choice. This means that the most recent pin wont be viewable in the pins tab, but will be visible in the pins archive channel that you chose during setup
+
+Mode 2: In mode 2, the oldest pinned message gets sent to a pins archive channel of your choice. This means that the most recent pin will be viewable in the pins tab, and the oldest pin will be unpinned and put into the pins archive channel
+***
+2. The third `# TODO` statement says
+
+> `# TODO`
+> `sendall is set to 0 by default, change to 1 if you want`
+>  `the bot to send all pinned messages to the pins channel`
+
+The sendall feature means that every pinned message (instead of the 50th pinned message) is sent to the pins channel which you will set up in the next step. Change `sendall = 0` to `sendall = 1` if you want the bot to send all pins to the pins channel
+***
+3. The fourth `# TODO` statement says
+
+> `# TODO`
+> `# replace the 0 with the pins channel ID for your sever`
+
+1. If you do not have a channel where you want to forward your pinned messages, create one. 
+2. In the sidebar of your discord server where the channels are listed right click on the channel and click on `COPY ID`. 
+3. replace the 0 in `pins_channel = 0` to the channel ID you copied. After copying it should look something like this `pins_channel = 947931203858726952` (obviously, the sequence of numbers for the pins channel in your server will be different from the example).
+4. please try to not delete the channel in the future if you want the bot to work
+***
+4. The fifth `# TODO` statement says
+
+> `# TODO`
+> `# add any black listed channel IDs as a list separated by a comma (,)`
+> `# a good idea is to add admin channels to this`
+
+Blacklisting means that pinned messages in those channels will not be sent to the pins channel. For example, if you have a mod channel, #mod-general, and if you do not want extra pinned messages from that channel being sent to #pins, copy the #mod-general ID andd put it in the `[ ]`
+
+If you want to add blacklisted channels, copy their IDs and put them inside the `[ ]` sepearated by commas `,`. 
+
+Adding one channel should look like: `blacklisted_channels  = [926958717696634901]`
+
+More than one channel should look like: `blacklisted_channels  = [926958717696634901, 972685609040748584, 840372439824334888]`
+
+Obviously, the sequence of numbers for the channels in your server will be different from the examples.
 
 ***
-## Host the bot on heroku for free
+5. For the sixth `# TODO` statement, scroll all the way to the bottom. It should say
+
+>   `# TODO Replace TOKEN with the token from discord developer portal`
+
+The Bot token you got from the first step and saved in a safe space should be used here. Copy the token and replace the words `TOKEN` with the token inside the quotes, **DO NOT DELETE THE QUOTES ON BOTH ENDS**.
+
+It should look something like `client.run('MTAwMTg3MDk1OTUzNzU2NTc1Ng.GZ6ikH.C_NRQfjO2oB1otGsRJZz5cpTRhKrIZ6twRnI4M')` 
+
+Obviously, your token will be different from the one in the example.
+
+If the token is posted anywhere online, your server may be in danger, please reset the token in the bot and update in the file and follow the steps in "Changing settings in the future after hosting" to update the hosting agent described in the section below.
+
+***
+## 3. Host the bot on heroku for free
+
+Hosting is typically expensive, there are multiple ways to host for free. You can either use the method I describe below or another one you find online. For this method you need a credit card, but you will not be charged anything, it is only used for verifying your heroku account. 
+
+### Hosting the bot
+
+### Verifying your heroku account
+
+***
+## 4. Changing settings in the future after hosting
