@@ -193,7 +193,9 @@ To change any settings, you have to edit the file on your computer first then re
 
 Thats it!
 
-***
+
+## NOTE: heroku resets all apps once every 24 hours, the bot may be down for a minute or two during this time. Do not worry, the bot will come back online after a minute or two. 
+
 > # Thank you for using the code, if you need any help at all please reach out on the support server.
 > ## I hope that the tutorial was informative and easy to follow.
 > hyppytyynytyydytys#1010
