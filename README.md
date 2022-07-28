@@ -61,11 +61,20 @@ You are complete with creating the bot, now you need to add it to your server.
 You are done with this part. Please move onto the next section below. 
 ***
 ## 2. Edit the main.py file
-This section, you will be editing the python code to fit your server's needs.  
+This section, you will be editing the python code to fit your server's needs. There are 2 deployment methods available to use. Choose out of the following to best fit your needs/experience:
+1. heroku CLI - Download the source code and upload a personal repo to heroku. Requires the use of a terminal program and text editor. Not recomeneded for visual learners and inexperienced beginners. Requires a manual deployment for every change.
+2. GitHub Diff - Can make all edits online. All changes are automatically detected and deployed. Sets up the project in a manner that will allow you to continue making changes to your hearts content, and perform pull requests for improvements on Passel Bot.
+
+### Setup for heroku CLI
 1. Click on [this link](https://github.com/stoir/passel_public).
 2. Click on the green Code button, then click on Download ZIP
 3. Unzip the file, and open the unzipped folder.
-4. Open the main.py file. You might need to install an editor like text edit to open the file. 
+4. Open the main.py file. You might need to install an editor like text edit to open the file.
+
+### Setup for GitHub Diff
+1. Click on [this link](https://github.com/stoir/passel_public/fork) to begin the fork process to your account.
+2. Follow the fork instructions on your account.
+3. **Optional** Create a release branch on your forked repo.
 
 ### 2.a. Once you open the File there are 5 places you MUST edit, and one place you may optionally edit.
 When you open the file, you will see the python code. This section may be a bit overwhelming for anyone experienceing code for the first time. Please follow the steps carefully so you can do this easily.
@@ -100,6 +109,7 @@ Mode 1: In mode 1, the most recent pinned message gets sent to a pins archive ch
 
 Mode 2: In mode 2, the oldest pinned message gets sent to a pins archive channel of your choice. This means that the most recent pin will be viewable in the pins tab, and the oldest pin will be unpinned and put into the pins archive channel
 ***
+
 2. The third `# TODO` statement says
 
 > `# TODO`
@@ -140,6 +150,8 @@ More than one channel should look like: `blacklisted_channels  = [92695871769663
 Obviously, the sequence of numbers for the channels in your server will be different from the examples.
 
 ***
+If you plan on using GitHub Deployment, go to step 6
+
 5. For the sixth `# TODO` statement, scroll all the way to the bottom. It should say
 
 >   `# TODO Replace TOKEN with the token from discord developer portal`
@@ -153,13 +165,38 @@ Obviously, your token will be different from the one in the example.
 If the token is posted anywhere online, your server may be in danger, please reset the token in the bot and update in the file and follow the steps in "Changing settings in the future after hosting" to update the hosting agent described in the section below.
 
 ***
+
+6. **GitHub Deployment Only**, Set up your environment variable and uncomment 2 lines of code.
+
+On your heroku app, click on the settings tab. You can then scroll down to a section named "Config Vars".
+
+Click on the button, Show Config Vars. You should now see 2 text boxes. One labeled `KEY` and the other `VALUE`
+
+In the `KEY` box, type in the word `TOKEN`. In the value box paste in your client token you copied from the discord bot settings. Then click add. Refresh your page and click Show Config Vars once again to make sure your environment variable has been set.
+
+Now in main.py look for the following 2 lines of code:
+
+> `#import os`
+
+> `#client.run(os.environ.get('TOKEN'))`
+
+Remove the `#` on both lines so the line is uncommented.
+
+Now find the line:
+
+> `client.run(os.environ.get('TOKEN'))`
+
+Add a # comment the line so it looks like `#client.run('TOKEN')`
+
+***
+
 ## 3. Host the bot on heroku for free
 
 Hosting is typically expensive, there are multiple ways to host for free. You can either use the method I describe below or another one you find online. For this method you need a credit card, but you will not be charged anything, it is only used for verifying your heroku account. 
 
 Using Heroku to host your bot is complicated. You will need to use the command line/terminal feature on your laptop or computer to use this. If you need help reach out or allow an expereinced member of your team to do this.
 
-### Hosting the bot
+### Set up your heroku app for hosting
 
 1. go to [https://id.heroku.com/login](https://id.heroku.com/login)
 2. create a new account and sign up, for primary development language select python. 
@@ -168,11 +205,26 @@ Using Heroku to host your bot is complicated. You will need to use the command l
 5. Click on create new app
 6. add an app name, keep it simple
 7. choose a region, US works well most of the time
-8. Use the heroku CLI to deploy, the heroku page shows steps on how to use the heroku CLI. You will need to run the heroku CLI commands on your windows command line or your mac terminal depending on your operating system. Do not copy paste the `$` sign. You must do the heroku CLI and github commands inside the repoistory of where you downloaded the bot.
-9. go to the heroku portal and click on resources, then toggle the worker python main.py on. To do this, click on the edit button then toggle on and click confirm.
-10. Once you delpy successfully, you should see the bot online in your discord server with a green active bubble on the bot's profile.
-11. click on more in the top right of the heroku portal, then click on view logs, you should also see your bot deployed successfully here. 
-12. After following the steps above, **please set up 2FA if you add a credit card to your account so your accound is extra protected** [Follow this link to set up 2FA.](https://devcenter.heroku.com/articles/multi-factor-authentication#enabling-mfa-and-registering-verification-methods)
+8. Go to the Deploy tab
+
+### Deploy using heroku CLI
+1. Use the heroku CLI to deploy, the heroku page shows steps on how to use the heroku CLI. You will need to run the heroku CLI commands on your windows command line or your mac terminal depending on your operating system. Do not copy paste the `$` sign. You must do the heroku CLI and github commands inside the repoistory of where you downloaded the bot.
+2. go to the heroku portal and click on resources, then toggle the worker python main.py on. To do this, click on the edit button then toggle on and click confirm.
+3. Once you deploy successfully, you should see the bot online in your discord server with a green active bubble on the bot's profile.
+4. click on more in the top right of the heroku portal, then click on view logs, you should also see your bot deployed successfully here. 
+5. After following the steps above, **please set up 2FA if you add a credit card to your account so your accound is extra protected** [Follow this link to set up 2FA.](https://devcenter.heroku.com/articles/multi-factor-authentication#enabling-mfa-and-registering-verification-methods)
+
+### Deploying using Github Diff
+
+1.  Click the option GitHub
+2.  Connect your GitHub account to heroku
+3.  For the section "App Connected to GitHub", select the forked repo you just created.
+4.  For the section "Automatic Deploys", select the branch you want to use for deployments: `main` or if you created it `release`
+5.  Wait for the app to finish building and deploy (check the activity tab or view logs)
+6.  Go to the heroku portal and click on resources, then toggle the worker python main.py on. To do this, click on the edit button then toggle on and click confirm.
+7.  After following the steps above, **please set up 2FA if you add a credit card to your account so your accound is extra protected** [Follow this link to set up 2FA.](https://devcenter.heroku.com/articles/multi-factor-authentication#enabling-mfa-and-registering-verification-methods)
+
+Once this is setup, every change you make to the selected branch in your forked repo will trigger a new build and deployment on heroku.
 
 ### Verifying your heroku account
 If you want your bot to be online all the time, YOU MUST verify your account by providing a credit card.

@@ -1,5 +1,7 @@
 from random import randrange
 
+# TODO if using Github diff deployment on HeroKu uncomment the next line
+#import os
 import discord
 from discord.ext import commands
 
@@ -206,5 +208,8 @@ async def on_guild_channel_pins_update(channel, last_pin):
         print("unpinned a message, not useful for bot so does nothing")
 
 
-# TODO Replace TOKEN with the token from discord developer portal
+# TODO Replace TOKEN with the token from discord developer portal 
 client.run('TOKEN')
+
+# TODO If using GitHub diff deployment on HeroKu comment out the above line with '#' and remove '#' from the line below to uncomment it. 
+#client.run(os.environ.get('TOKEN'))
