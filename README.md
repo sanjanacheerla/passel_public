@@ -224,6 +224,8 @@ Using Heroku to host your bot is complicated. You will need to use the command l
 6.  Go to the heroku portal and click on resources, then toggle the worker python main.py on. To do this, click on the edit button then toggle on and click confirm.
 7.  After following the steps above, **please set up 2FA if you add a credit card to your account so your accound is extra protected** [Follow this link to set up 2FA.](https://devcenter.heroku.com/articles/multi-factor-authentication#enabling-mfa-and-registering-verification-methods)
 
+Once this is setup, every change you make to the selected branch in your forked repo will trigger a new build and deployment on heroku.
+
 ### Verifying your heroku account
 If you want your bot to be online all the time, YOU MUST verify your account by providing a credit card.
 
