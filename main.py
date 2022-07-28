@@ -208,7 +208,7 @@ async def on_guild_channel_pins_update(channel, last_pin):
         print("unpinned a message, not useful for bot so does nothing")
 
 
-# TODO If using Heroku CLI or other deployment method replace TOKEN with the token from discord developer portalplace TOKEN environment variable 
+# TODO Replace TOKEN with the token from discord developer portal 
 client.run('TOKEN')
 
 # TODO If using GitHub diff deployment on HeroKu comment out the above line with '#' and remove '#' from the line below to uncomment it. 
