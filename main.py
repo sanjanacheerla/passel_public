@@ -1,7 +1,7 @@
 from random import randrange
 
 # TODO if using Github diff deployment on HeroKu uncomment the next line
-#import os
+import os
 import discord
 from discord.ext import commands
 
