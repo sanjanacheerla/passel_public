@@ -184,7 +184,7 @@ Remove the `#` on both lines so the line is uncommented.
 
 Now find the line:
 
-> `client.run(os.environ.get('TOKEN'))`
+> `client.run('TOKEN')`
 
 Add a # comment the line so it looks like `#client.run('TOKEN')`
 
